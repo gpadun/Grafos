@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Estruturas de Dados: Grafos em C
 
 Este projeto é uma implementação em linguagem C de um conjunto de operações e algoritmos para manipulação de grafos. O objetivo principal foi aprofundar o conhecimento sobre estruturas de dados, gerenciamento de memória e a lógica por trás de conceitos complexos de forma manual e de baixo nível.
@@ -39,3 +40,6 @@ Este projeto inclui as seguintes funcionalidades para manipulação de grafos:
     `main.c grafo.c buscaProfundidade.c buscaEmLargura.c -o meuGrafo`
 4.  Execute o programa:
     `./meu_grafo`
+=======
+# Grafos
+>>>>>>> d0c8b575e357fd41beeefd1cabd7b743b572c39b
