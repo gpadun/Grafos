@@ -38,5 +38,5 @@ Este projeto inclui as seguintes funcionalidades para manipulação de grafos:
 3.  Compile o código usando o comando:
     `main.c grafo.c buscaProfundidade.c buscaEmLargura.c -o meuGrafo`
 4.  Execute o programa:
-    `./meu_grafo`
+    `./meuGrafo`
 
