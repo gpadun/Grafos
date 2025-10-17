@@ -5,10 +5,8 @@
 #define false 0
 typedef int bool;
 
-// As definições a seguir devem estar em um arquivo de cabeçalho (.h)
 typedef struct aux{
 	int vertice;
-	// Peso peso; // Remova se o grafo não for ponderado
 	struct aux* prox;
 } ElementoLista, *POINT;
 
@@ -18,7 +16,6 @@ typedef struct{
 	ElementoLista** A;
 }Grafo;
 
-// --- Implementação da Busca em Profundidade (DFS) ---
 
 void visitaProfundidade(Grafo* g, int atual, bool* visitado, int anterior){
 	printf("Visitando vertice: %3i (anterior: %3i)\n", atual, anterior);
@@ -45,23 +42,23 @@ void buscaEmProfundidade(Grafo* g){
 	free(visitado);
 }
 
-// --- Implementação da Busca em Profundidade com Cores (DFS Colors) ---
+// implementação da busca em profundidade com cores
 
 void visitaDFSCores(Grafo* g, int atual, int* tempo, int* cor, int* tDescoberta, int* tTermino, int* anterior){
 	(*tempo)++;
-	cor[atual] = 1; // CINZA
+	cor[atual] = 1; // cinza
 	tDescoberta[atual] = *tempo;
 	int w;
 	ElementoLista* end = g->A[atual];
 	while (end){
 		w = end->vertice;
-		if(cor[w] == 0){ // BRANCO
+		if(cor[w] == 0){ // branco
 			anterior[w] = atual;
 			visitaDFSCores(g, w, tempo, cor, tDescoberta, tTermino, anterior);
 		}
 		end = end->prox;
 	}
-	cor[atual] = 2; // PRETO
+	cor[atual] = 2; // preto
 	(*tempo)++;
 	tTermino[atual] = *tempo;
 }
@@ -73,7 +70,6 @@ void DFSCores(Grafo* g){
 	int* tTermino = (int*) malloc(sizeof(int)*g->numVertices);
 	int* anterior = (int*) malloc(sizeof(int)*g->numVertices);
 
-    // Verifica se a alocação falhou
     if (!cor || !tDescoberta || !tTermino || !anterior) {
         printf("Erro de alocacao de memoria.\n");
         return;
@@ -82,7 +78,7 @@ void DFSCores(Grafo* g){
 	int tempo = 0;
 	int x;
 	for (x = 0; x < g->numVertices; x++){
-		cor[x] = 0; // BRANCO
+		cor[x] = 0; // branco
 		tDescoberta[x] = -1;
 		tTermino[x] = -1;
 		anterior[x] = -1;
