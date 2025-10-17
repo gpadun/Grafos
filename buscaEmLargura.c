@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Definições de tipos
 #define true 1
 #define false 0
 typedef int bool;
-typedef float Peso; // Exemplo de definição para o tipo Peso
+typedef float Peso; 
 
 typedef struct aux{
 	int vertice;
@@ -29,7 +28,6 @@ typedef struct{
 	No* fim;
 } Fila;
 
-// --- Funções da Fila ---
 
 void inicializaFila(Fila* f){
 	f->inicio = NULL;
@@ -42,7 +40,7 @@ bool filaVazia(Fila* f){
 
 void insereFila(Fila* f, int valor){
 	No* novo = (No*) malloc(sizeof(No));
-	if (!novo) return; // Verifica se a alocação de memória falhou
+	if (!novo) return; 
 	novo->prox = NULL;
 	novo->valor = valor;
 	if (f->inicio == NULL){
@@ -62,7 +60,7 @@ No* excluiFila(Fila* f){
 	return atual;
 }
 
-// --- Busca em Largura (BFS) para listas de adjacência ---
+// busca em Largura (BFS) para listas de adjacência
 
 void buscaEmLargura(Grafo* g, int inicial, bool* visitado){
 	if (!g || inicial < 0 || inicial >= g->numVertices) return;
@@ -79,7 +77,7 @@ void buscaEmLargura(Grafo* g, int inicial, bool* visitado){
 	while(!filaVazia(&f)){
 		no = excluiFila(&f);
 		int atual = no->valor;
-		printf("Visitando vertice %d\n", atual); // Adicionei um print para ver o resultado
+		printf("Visitando vertice %d\n", atual); 
 		free(no);
 
 		end = g->A[atual];
@@ -98,7 +96,7 @@ void buscaEmLarguraCompleta(Grafo* g){
 	if (!g || g->numVertices < 1) return;
 	
 	bool* visitado = (bool*)malloc(sizeof(bool) * g->numVertices);
-	if (!visitado) return; // Verifica se a alocação de memória falhou
+	if (!visitado) return; 
 
 	for (int x = 0; x < g->numVertices; x++){
         visitado[x] = false;
