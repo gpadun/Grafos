@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "grafo.h"
 
-// Protótipos das funções auxiliares
+// protótipos das funções auxiliares
 Grafo* criarGrafoManual(int numVertices, int tipo);
 Grafo* criarGrafoAleatorio(int numVertices, int tipo);
 void menuOperacoes(Grafo* g);
@@ -38,8 +38,8 @@ int main(){
         printf("Digite o numero de vertices: ");
         scanf("%d", &numVertices);
         g = criarGrafoManual(numVertices, opcaoTipo);
-    } else {
-        // Agora, a chamada está correta com dois argumentos
+    } 
+	else {
         g = criarGrafoAleatorio(5, opcaoTipo); 
     }
 
@@ -100,7 +100,6 @@ void menuOperacoes(Grafo *g){
 			break;
 		case 6:
             printf("\n-> Executando Busca em Largura (BFS)\n");
-            // Certifique-se de que o seu grafo 'g' já foi inicializado
             if (g != NULL) {
                 buscaEmLarguraCompleta(g);
             } else {
@@ -109,7 +108,6 @@ void menuOperacoes(Grafo *g){
             break;
 		case 7:
             printf("\n-> Executando Busca em Profundidade (DFS com cores)\n");
-            // Certifique-se de que o seu grafo 'g' já foi inicializado
             if (g != NULL) {
                 DFSCores(g);
             } else {
